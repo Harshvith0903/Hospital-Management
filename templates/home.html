@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Welcome to DoctorAppointments</h1>
+        <p class="lead">Book your appointments with ease. Your health is our priority.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'create_appointment' %}" role="button">Book an Appointment</a>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Experienced Doctors</h5>
+                    <p class="card-text">Our team of experienced and qualified doctors is here to serve you.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Easy Appointment Booking</h5>
+                    <p class="card-text">Book your appointments online with just a few clicks.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">24/7 Support</h5>
+                    <p class="card-text">Our support team is available 24/7 to assist you with any queries.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

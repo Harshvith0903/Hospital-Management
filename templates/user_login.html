@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+<div class="container d-flex justify-content-center " style="height: 100vh;">
+    <main class="form-signin w-50 m-auto card p-4 ">
+        <div class="text-center mb-2 ">
+            <h1>Welcome Back!</h1>
+            <p> Login with your details to continue</p>
+        </div>
+        <form class="" method="POST" >
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="email" class="form-label">Username</label>
+              <input type="text" class="form-control" id="email" name="username"  placeholder="Enter the email">
+             
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter the password">
+            </div>
+          
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        <p class="mt-5 mb-3 text-body-secondary lead text-center">Don't have an account? <a href="/Register.html" class="text-black text-decoration-none fw-bold ">Sign Up</a></p>
+      </main>
+</div>
+{% endblock content %}

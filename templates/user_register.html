@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="mb-4">User Registration</h1>
+
+    <form method="post" action="{% url 'user_register' %}" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" class="form-control" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">age</label>
+            <input type="text" id="contact" name="age" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+</div>
+{% endblock content %}

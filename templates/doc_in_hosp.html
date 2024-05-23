@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="mb-4">View Doctors and Hospitals</h1>
+
+    <form method="post" action="{% url 'view_doc_and_hospital' %}" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="query">Search for Doctor or Hospital:</label>
+            <input type="text" id="query" name="query" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    {% if doc_in_hosp %}
+        <h2>Results</h2>
+        <ul class="list-group">
+            {% for item in doc_in_hosp %}
+                <li class="list-group-item">
+                    {% if item.doctor %}
+                        <strong>Doctor:</strong> {{ item.doctor.name }}
+                    {% endif %}
+                    {% if item.hospital %}
+                        <strong>Hospital:</strong> {{ item.hospital.name }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+</div>
+{% endblock content %}

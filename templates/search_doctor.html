@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="mb-4">Search for a Doctor</h1>
+
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="q">Search:</label>
+            <input type="text" id="q" name="q" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <h2>Search Results</h2>
+
+    {% if all_docs %}
+    <ul class="list-group">
+        {% for doc in all_docs %}
+        <li class="list-group-item">{{ doc.name }} - {{ doc.speciality }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No doctors found.</p>
+    {% endif %}
+
+</div>
+{% endblock content %}

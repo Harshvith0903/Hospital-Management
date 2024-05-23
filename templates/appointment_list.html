@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="mb-4">Your Appointments</h1>
+
+    {% if appointment_list %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Doctor</th>
+                    <th scope="col">Hospital</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Appointment Date</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointment_list %}
+                    <tr>
+                        <td>{{ appointment.doctor.name }}</td>
+                        <td>{{ appointment.hospital.name }}</td>
+                        <td>{{ appointment.patient_name }}</td>
+                        <td>{{ appointment.description }}</td>
+                        <td>{{ appointment.appointment_date }}</td>
+                        <td><a class="btn btn-danger" href="{% url 'delete_appointment' appointment.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+    <h1 class="mb-4">Your Emergency Booking</h1>
+    {% if emergency_list %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Hospital</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Emergency</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emergency in emergency_list %}
+                    <tr>
+                        <td>{{ emergency.hospital.name }}</td>
+                        <td>{{ emergency.patient_name }}</td>
+                        <td>{{ emergency.emergency }}</td>
+                        <td>{{ emergency.description }}</td>
+                    
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+
+</div>
+{% endblock content %}
