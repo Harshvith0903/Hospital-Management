@@ -13,6 +13,7 @@ To run this project, you need to have Django and MySQL installed. Follow these s
     ```bash pip install mysqlclient```
 
 ## How to Run this project
+    cd/(into your workspace folder)
     python manage.py runserver
 
 ## Usage
